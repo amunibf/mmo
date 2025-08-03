@@ -149,7 +149,8 @@ multiCursorModifier
 git remote add origin https://github.com/amunibf/ar.git
 # Ganti URL dengan yang Anda salin dari GitHub
 
-git add . && git commit -m "Initial croject" &&  git push -u origin master
+git add . && git commit -m "Initial croject" &&  git push
+ -u origin master
 Environment="CUSTOM_SENDER_NAME=Bux Johnson"
 
 
