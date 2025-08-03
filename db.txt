@@ -1,0 +1,471 @@
+frontend :
+1. validate input number -> ok 
+2. currency selection and conversion ->ok
+3. responsiveness
+4. page loader - > ok
+5. print chart as 2 pages ->ok
+6. export data to csv -> ok
+7. expiration logout + notif
+8. pagination first/last page -> ok
+9. one tab only 
+10. search form -> ok
+11. reset data after filter
+12. data less than 5 or 10
+13. show all data
+14. pricing page
+15. list of debt
+16. update credentials
+17. authorization
+18. success notif -> ok
+19. prevent loader from profile to dashboard using caching
+
+monthly chart5
+weekly chart3
+ytd pie chart4
+expgauge chart6
+
+alter table usr add column country varchar(60) after verified;
+
+amunibfikry@gmail.com
+avalon
+MSvbvm60!@
+MSvbvm60!@
+tboka
+test123
+delete from subscribers where email = 'amunibf@gmail.com';
+delete from subscribers2 where email = 'laptoplifestyleacademy2@gmail.com';
+select * from subscribers;
+delete from usr where username = 'tboka';
+delete from accts where uid = 1;
+delete from email where email = 'amunibfikry@gmail.com';
+select * from usr;
+
+ALTER TABLE flasktbl modify COLUMN price decimal(10,2);
+
+ALTER TABLE usr modify COLUMN max_exp decimal(10,2);
+
+
+
+ALTER TABLE mytable
+     CHANGE mycolumn
+            mycolumn TIMESTAMP NOT NULL;
+
+//mengubah default value
+alter table flasktbl change date date timestamp not null default now();
+
+//cek tipe data tabel
+desc usr;
+desc flasktbl;
+
+//masuk ke mariadb sebagai root
+sudo mariadb -u root
+
+//membuat user dan password untuknya
+create user 'munib'@'localhost' identified by 'MSvbvm60!@#1';
+
+//merubah password untuk user
+alter user 'munib'@'localhost' identified by 'MSvbvm60!@#1';
+
+//memberikan hak akses ke user baru
+GRANT ALL PRIVILEGES ON email.* TO 'munib'@'localhost';
+
+grant all priviliges on * . * to 'munib'@'localhost' with grant opion;
+
+//reload hak akses
+flush privileges;
+
+//restart mariadb
+sudo service mariadb restart
+
+
+
+
+sudo service mariadb status
+
+//masuk ke mariadb sebagai user dengan passwordnya
+sudo mariadb -u munib -p
+
+SELECT User FROM mysql.user;
+
+//membuat database 
+create database flaskdb;
+create database usr;
+
+git config --global user.email "amunibf@gmail.com"
+
+//masuk ke database
+use namadatabase;
+
+//mengecek database yang sedang digunakan
+select database();
+
+//login mariadb langsung masuk database
+mysql -u munib -p -h localhost namadatabase;
+
+//membuka daftar databases
+show databases;
+
+//membuka daftar tabels
+show tables;
+
+//membuat table
+create table gedibals (
+    id int not null primary key auto_increment,
+    name varchar(100) not null,
+    address varchar(255) not null,
+    salary int(10) not null
+);
+
+create table debt (
+    id int not null primary key auto_increment,
+    creditor varchar(100) not null,
+    owed int(10) not null,
+    payment int(10) not null
+);
+
+create table customers (
+    id int not null primary key auto_increment,
+    name varchar(50) not null unique,
+    dob date,
+    email varchar(50),
+    gender enum('m', 'f'),    
+    address varchar(50),
+    city varchar(50),
+    state varchar(50),
+    zipcode varchar(20),
+    country varchar(50),
+    occupation varchar(30),
+    company varchar(100),
+    phone varchar(22),
+    note varchar(255),
+    reg_date timestamp
+);
+select * from customers;
+insert into customers (name, email) values ('hanan', 'hanan@gmail.com');
+
+
+create table if not exists flasktbl (
+    id int not null primary key auto_increment,
+    product varchar(100) not null,
+    description varchar(100) not null,
+    price int(10) not null,
+    description varchar(100) default "income",
+
+);
+
+//memasukkan data ke dalam tabel
+insert into flasktbl (product, description, price) values ('CBR', 'Motor hoda keren', 6700000);
+
+//melihat isi olom tabel
+select * from flasktbl;
+select product from flasktbl;
+select price from flasktbl;
+
+//cari karyawan gaji > 50000
+select * from employees where salary > 50000;
+
+//Merubah nilai tabel
+update employees set address = 'Kebasen' where id = 3;
+update flasktbl set usr_id = '37' where id = 213;
+update usr set verified = '1' where email = 'abc@gmail.com';
+update usr set max_exp = '45000' where username = 'tboka';
+
+//menghapus database
+drop database usr;
+
+//menghapus table
+drop table flasktbl;
+
+
+//Menghapus suatu baris di tabel
+delete from flasktbl where usr_id = 149;
+delete from usr where email = 'amunibf@gmail.com';
+delete from usr where username = 'avalon';
+delete from usr where created_at;
+delete from accts where uid=16;
+
+//menghapus suatu kolom di tabel
+alter table usr drop column verified;
+
+
+
+//tabel form registrasi amunibf
+create table usr (
+    usr_id int not null primary key auto_increment,
+    username varchar(50) not null unique,
+    password varchar(255) not null,
+    email varchar(255) not null,
+    created_at datetime default current_timestamp,
+    verified boolean default false,
+    max_exp int(10) not null default "0" 
+);
+
+create table usr (
+    id int not null primary key auto_increment,
+    username varchar(50) not null unique,
+    password varchar(255) not null
+);
+
+//hapus tabel
+drop table usr;
+drop table customers;
+
+insert into usr (username,email, password) values ('tboka','abc@gmail.com', 'test123');
+select * from usr;
+SELECT password FROM usr WHERE username = 'xyl';
+
+alter table usr add column email varchar(255) after username;
+alter table usr drop column accounts;
+
+alter table usr add column max_exp int(10) after verified;
+alter table usr add column currency varchar(4) after max_exp;
+alter table usr drop column max_exp;
+
+#change default value
+ALTER TABLE usr ALTER COLUMN max_exp SET DEFAULT "0";
+
+ALTER TABLE uprofile
+    ADD COLUMN log VARCHAR(12) NOT NULL,
+    ADD COLUMN FOREIGN KEY (id) REFERENCES usr(id)
+    AFTER nationality;
+
+UPDATE boys SET toy_id = ...;
+
+#menghapus kolom
+alter table flasktbl drop column usr_id;
+
+#merubah nama kolom
+alter table flasktbl rename column updated to date;
+
+#tambah kolom
+alter table usr add column pp_url varchar(2083) null;
+alter table flasktbl add column is_verified varchar(7) null;
+alter table flasktbl add column verified boolean default false;
+
+#menambahkan foreign key
+alter table accts add column usr_id int(11);
+ALTER TABLE accts ADD FOREIGN KEY (usr_id) REFERENCES usr(usr_id);
+
+create table uprofile (
+    uid int not null primary key auto_increment,
+    address varchar(100) not null,
+    gender varchar(255) not null,
+    nationality int(10) not null
+);
+
+create table accts (
+    uid int not null primary key auto_increment,
+    acct varchar(100) not null,
+    balance int(10) not null,
+    category varchar(20) not null,
+    date timestamp not null default current_timestamp on update current_timestamp
+);
+
+alter table debt add column updated timestamp not null default current_timestamp on update current_timestamp;
+
+
+create table if not exists flasktbl (
+    id int not null primary key auto_increment,
+    product varchar(100) not null,
+    description varchar(20) not null,
+    type varchar(20) not null,
+    price int(10) not null,
+    usr_id int not null,
+    foreign key (usr_id) references usr(usr_id)
+);
+
+#menambah timestamp
+alter table flasktbl add column updated timestamp not null default current_timestamp on update current_timestamp;
+
+alter table debt add column updated timestamp not null default current_timestamp on update current_timestamp;
+
+
+sudo nano /etc/redis/redis.conf
+maxmemory 100mb maxmemory-policy allkeys-lru
+sudo systemctl  enable  redis-server sudo systemctl start redis-server
+redis-cli
+set  testkey  "hello"  get testkey
+celery -A backend.celery beat --loglevel=INFO
+celery -A backend.celery worker --loglevel=DEBUG
+
+
+
+Certainly! To trigger a Celery Beat scheduler from a Flask API call, you can follow these steps:
+
+Set up Celery and Celery Beat: Ensure you have Celery and Celery Beat configured in your Flask application.
+
+Create a Celery Task: Define the task you want to schedule.
+
+Create a Flask Route: Define an API endpoint in Flask that triggers the Celery Beat scheduler.
+
+Here's a concise example to illustrate this:
+
+1. Set up Celery and Celery Beat
+
+First, install the necessary packages if you haven't already:
+
+pip install celery
+pip install redis
+
+
+Configure Celery in your Flask application:
+
+from flask import Flask
+from celery import Celery
+
+app = Flask(__name__)
+app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
+
+def make_celery(app):
+    celery = Celery(
+        app.import_name,
+        broker=app.config['CELERY_BROKER_URL'],
+        backend=app.config['CELERY_RESULT_BACKEND']
+    )
+    celery.conf.update(app.config)
+    return celery
+
+celery = make_celery(app)
+
+2. Create a Celery Task
+
+Define the task you want to schedule:
+
+@celery.task
+def my_scheduled_task():
+    print("Task is running")
+
+3. Create a Flask Route
+
+Define an API endpoint in Flask that triggers the Celery Beat scheduler:
+
+from flask import jsonify
+
+@app.route('/trigger-scheduler', methods=['POST'])
+def trigger_scheduler():
+    from celery.schedules import crontab
+    from celery.task.control import revoke
+
+    # Revoke any existing scheduled tasks
+    revoke('my_scheduled_task', terminate=True)
+
+    # Schedule the task to run every minute
+    celery.conf.beat_schedule = {
+        'run-every-minute': {
+            'task': 'my_scheduled_task',
+            'schedule': crontab(minute='*/1'),
+        },
+    }
+    celery.conf.timezone = 'UTC'
+
+    return jsonify({"message": "Scheduler triggered"}), 200
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+Running the Application
+Start the Flask application:
+flask run
+
+Start the Celery worker:
+celery -A your_flask_app.celery worker --loglevel=info
+
+Start the Celery Beat scheduler:
+celery -A your_flask_app.celery beat --loglevel=info
+
+
+Now, when you make a POST request to /trigger-scheduler, it will trigger the Celery Beat scheduler to run my_scheduled_task every minute.
+
+Feel free to adapt this example to fit your specific needs! If you have any further questions or need additional assistance, I'm here to help.
+
+
+<div>
+            <label for="cars">Choose date in a month:</label>
+            <select name="cars" id="cars">
+              <option value="-">-</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+            </select>
+          </div>
+
+redis-cli -h HOST -p 6379 -n DATABASE_NUMBER llen QUEUE_NAME
+
+ KEYS *
+
+
+
+celery inspect active
+To List All Registered Tasks Processed by Workers
+celery inspect registered
+To List All Active Queues in Celery
+celery inspect active_queues
+To Monitor System Performance
+celery inspect stats
+To Monitor the Scheduled Job Frequency
+celery inspect conf
+To List Workers and Their Availability Status
+celery status
+
+from apscheduler.schedulers.blocking import BlockingScheduler
+
+def my_periodic_job():
+    print("This job runs periodically on specific dates!")
+
+scheduler = BlockingScheduler()
+
+# Schedule the job to run every 15th of the month at 10:30 AM
+scheduler.add_job(my_periodic_job, 'cron', day='15', hour=10, minute=30)
+
+# Schedule the job to run every Monday and Wednesday at 9:00 AM
+scheduler.add_job(my_periodic_job, 'cron', day_of_week='mon,wed', hour=9, minute=0)
+
+# Schedule the job to run on the last Sunday of every month at midnight
+scheduler.add_job(my_periodic_job, 'cron', day='last sun', hour=0, minute=0)
+
+scheduler.start()
+
+#pip hash problem
+pip cache purge
+pip install --no-cache-dir numpy
+
+#github
+git add . && git commit -m 123 && git push -u origin main
+
+#marketing
+CREATE TABLE subscribers2 (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    name VARCHAR(255),
+    subscribe_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    is_verified TINYINT(1) DEFAULT 0,
+    verification_token VARCHAR(255)
+);
+
+GRANT SELECT, INSERT, UPDATE ON munib.* TO 'munib'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+
+SELECT COUNT(*) FROM subscribers;
+
+update subscribers set email_sent_day3 = 0 where email = 'amunibf@gmail.com';
+
+
+update subscribers set last_email_sent_day = 2 where email = 'amunibf@gmail.com';
+
+CREATE TABLE IF NOT EXISTS mmo (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL UNIQUE,
+            subscribed_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+            is_confirmed BOOLEAN DEFAULT FALSE,
+            confirmation_token VARCHAR(255) UNIQUE,
+            token_expiry DATETIME,
+            last_email_sent_day INT DEFAULT 0
+        );

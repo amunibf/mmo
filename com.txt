@@ -1,0 +1,250 @@
+# Ganti yourusername dengan username Linux yang Anda gunakan untuk SSH
+sudo chown -R skylight:www-data /var/www/optin_app/
+sudo chmod -R 775 /var/www/optin_app/
+sudo chown -R skylight:skylight /var/www/optin_app/
+
+sudo systemctl restart apache2
+
+sudo find /var/www/html/ -type d -exec chmod 755 {} \; # Izin untuk direktori
+sudo find /var/www/html/ -type f -exec chmod 644 {} \; # Izin untuk file
+sudo chown -R skylight:skylight /var/www/autoresponder_app
+ sudo apt install php8.0-xml php-cli php-zip php-json php-curl php-mbstring php-dom -y
+
+cloudflared tunnel create munib
+13cb41cc-ba39-4c40-8275-76960bf13481
+/home/skylight/.cloudflared/13cb41cc-ba39-4c40-8275-76960bf13481.json
+
+tunnel: 13cb41cc-ba39-4c40-8275-76960bf13481
+credentials-file: /home/skylight/.cloudflared/13cb41cc-ba39-4c40-8275-76960bf13481.json
+
+ingress:
+  - hostname: thebuxsmethod.com
+    service: http://localhost:80 # Arahkan ke web server Apache/Nginx di Pi Anda
+
+  - hostname: www.thebuxsmethod.com
+    service: http://thebuxsmethod:80 # Arahkan ke www juga
+
+  # Anda bisa menambahkan aturan lain, misal untuk layanan lain di Pi Anda
+  # - hostname: ssh.namadomainanda.com
+  #   service: ssh://localhost:22 # Contoh untuk SSH
+
+13cb41cc-ba39-4c40-8275-76960bf13481.cfargotunnel.com
+
+
+cloudflared tunnel run
+sudo cloudflared tunnel install # Ini akan membuat file service systemd
+sudo systemctl enable cloudflared.service # Mengaktifkan service saat boot
+sudo systemctl start cloudflared.service # Memulai service sekarang
+
+Jangan Lewatkan Penawaran Spesial Ini!
+
+sudo a2ensite thebuxsmethod.com.conf
+
+sudo nano /etc/apache2/sites-available/thebuxsmethod.com.conf
+
+<VirtualHost *:443>
+    ServerAdmin webmaster@localhost
+    ServerName thebuxsmethod.com            # GANTI DENGAN NAMA DOMAIN ANDA
+    ServerAlias www.thebuxsmethod.com       # GANTI DENGAN WWW.NAMADOMAINANDA
+
+    # Ini adalah LOKASI FOLDER website Anda di Raspberry Pi
+    # Misalnya: /var/www/html/thebuxsmethod atau /home/pi/public_html
+    DocumentRoot /var/www/html/thebuxsmethod.com # GANTI DENGAN PATH KE FOLDER WEBSITE ANDA
+
+    <Directory /var/www/html/thebuxsmethod.com>  # PASTIKAN SAMA DENGAN DocumentRoot
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+# Jika Anda berencana menggunakan HTTPS (sangat disarankan!),
+# Anda akan menambahkan blok <VirtualHost *:443> di sini nanti
+# setelah menginstal sertifikat SSL (misalnya dengan Let's Encrypt).
+# Untuk sementara, fokus pada HTTP dulu.
+
+
+sudo certbot --nginx -d mltfreedom.com -d www.mltfreedom.com
+sudo nginx -t
+server {
+    listen 80;
+    server_name thebuxsmethod.com www.thebuxsmethod.com; 
+    location /static {
+        alias /var/www/optin_app/static;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/var/www/optin_app/optin_app.sock;
+    }
+
+    error_log /var/log/nginx/optin_app_error.log;
+    access_log /var/log/nginx/optin_app_access.log;
+} 
+
+mysql -u munib -p email
+
+sudo nano /etc/systemd/system/mltfreedom.service
+systemctl enable optin_app
+sudo systemctl enable optin_app
+sudo systemctl daemon-reload && sudo systemctl restart optin_app.service && sudo systemctl enable optin_app.service && sudo systemctl status optin_app.service 
+sudo systemctl daemon-reload && sudo systemctl restart mltfreedom.service && sudo systemctl enable mltfreedom.service && sudo systemctl status mltfreedom.service 
+curl -X POST "https://api.cloudflare.com/client/v4/zones/d99f4364dfde8fab6b6b2c7b07ba78e3/purge_cache" -H "Authorization: Bearer b9ece592b777080ec0fbcd69f955ee1d0e958" -H "Content-Type: application/json" --data '{"purge_everything":true}'
+sudo systemctl stop optin_app && sudo systemctl status optin_app
+
+[Unit]
+Description=Gunicorn instance to serve mltfreedom
+After=network.target
+
+[Service]
+User=earthlight
+Group=www-data
+WorkingDirectory=/var/www/mltfreedom
+Environment="PATH=/var/www/mltfreedom/env/bin"
+Environment="SECRET_KEY=kunci_rahasia_anda_yang_sangat_panjang_dan_acak_disini_sesuai_panduan"
+Environment="DB_HOST=localhost"
+Environment="DB_USER=munib"
+Environment="DB_PASS=MSvbvm60!@#1"
+Environment="DB_NAME=email"
+Environment="SITE_URL=https://mltfreedom.com"
+Environment="MAIL_SERVER=smtp-relay.brevo.com"
+Environment="MAIL_PORT=587"
+Environment="MAIL_USE_TLS=True"
+Environment="MAIL_USERNAME=936033002@smtp-brevo.com"
+Environment="MAIL_PASSWORD=7y14xAa0mPj5dzH6"
+Environment="MAIL_DEFAULT_SENDER=john@mltfreedom.com"
+Environment="CUSTOM_SENDER_NAME=John Smith"
+ExecStart=/var/www/mltfreedom/env/bin/gunicorn -b 127.0.0.1:5001 --workers 3 --bind unix:/var/www
+/mltfreedom/mltfreedom.sock -m 007 wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+sudo systemctl daemon-reload && sudo systemctl restart optin_app
+
+
+systemctl daemon-reload
+sudo systemctl restart optin_app
+systemctl enable optin_app
+systemctl status optin_app
+
+jika gagal maka python app.py atau flask run, nanti keluar errornya
+
+?? kenapa halaman web saya tidak merefer ke folder optin_app tapi ke www/html?
+sudo unlink /etc/nginx/sites-enabled/default
+sudo certbot --nginx -d web.thebuxsmethod.com -d www.thebuxsmethod.com
+
+sudo journalctl -u gunicorn.service -f
+
+
+Buka Settings di VS Code:
+
+Tekan Ctrl + , (koma)
+
+Atau buka Command Palette (Ctrl + Shift + P), ketik settings, lalu pilih Preferences: Open Settings (UI) atau Preferences: Open User Settings (JSON).
+multiCursorModifier
+
+git remote add origin https://github.com/amunibf/ar.git
+# Ganti URL dengan yang Anda salin dari GitHub
+
+git add . && git commit -m "Initial croject" &&  git push -u origin master
+Environment="CUSTOM_SENDER_NAME=Bux Johnson"
+
+
+Tekan Ctrl + Shift + P (Windows/Linux) atau Cmd + Shift + P (macOS).
+Cari Keyboard Shortcuts: Ketik keyboard shortcuts lalu pilih "Preferences: Open Keyboard Shortcuts".
+Cari Perintah Komentar: Di bilah pencarian atas, ketik toggle line comment
+
+
+dog brain training
+https://www.braintraining4dogs.com/get-btfd/?&shield=1fefa81au7b2b797z4u732v6wi
+
+Secrets to Dog Training: Stop Your Dog's Behavior Problems!
+https://28245e4mw497l4fnom-sjncr03.hop.clickbank.net
+
+Solve Dog Reactivity AutoWebinar - Tames The World's No.1 Dog Problem
+
+
+laptoplifestyleacademy2@gmail.com
+
+SET SUBDOMAIN
+
+sudo mkdir -p /var/www/web/html
+sudo echo "<h1>Ini adalah subdomain Anda!</h1>" | sudo tee /var/www/web/html/index.html
+
+
+sudo chown -R nginx:www-data /var/www/web/html
+sudo chmod -R 755 /var/www/web
+sudo nano /etc/nginx/sites-available/mltfreedom
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    root /var/www/mltfreedom/html;
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name web.thebuxsmethod.com;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
+sudo ln -s /etc/nginx/sites-available/mltfreedom /etc/nginx/sites-enabled/
+
+cloudflared tunnel route dns raspi-tunnel tnl.thebuxsmethod.com
+
+tunnel: raspi-tunnel
+credentials-file: /home/skylight/.cloudflared/raspi-tunnel.json
+
+ingress:
+  - hostname:  rpi.thebuxsmethod.com
+    service: http://localhost:3000
+  - service: http_status:404
+
+sudo nano ~/starlight/.cloudflared/config.yml
+
+cloudflared tunnel route dns a-tunnel thebuxsmethod.com
+cloudflared tunnel run a-tunnel
+
+e2483963-0184-43fa-b109-9d518995a2e4.json
+
+sudo chown skylight:skylight ~/.cloudflared/e2483963-0184-43fa-b109-9d518995a2e4.json
+cloudflared tunnel run a-tunnel
+chmod 600 ~/.cloudflared/e2483963-0184-43fa-b109-9d518995a2e4.json
+
+
+location /static {
+        alias /var/www/optin_app/static;
+    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/var/www/optin_app/optin_app.sock;
+    }
+
+sudo certbot --nginx -d mltfreedom.com -d www.mltfreedom.com
+ln -s /etc/nginx/sites-available/mltfreedom.conf /etc/nginx/sites-enabled
+
+sudo nano /etc/hosts
+
+install font
+cp BigFlorida.ttf ~/.fonts/ && fc-cache -fv
+cp Postbook.ttf ~/.fonts/ && fc-cache -fv
+cp Babelgam.ttf ~/.fonts/ && fc-cache -fv
+cp CRIALTRIAL.ttf ~/.fonts/ && fc-cache -fv
+cp Cabbagetown.ttf ~/.fonts/ && fc-cache -fv
+
+* * * * * /usr/bin/python /home/skylight/scrp/selenium/test2.py
+@reboot /usr/bin/python /home/skylight/scrp/selenium/test2.py
+
+* * * * * /home/skylight/scrp/selenium/test2.py >> ./test2.log 2>&1
+
+
+sudo systemctl status cron
+sudo systemctl restart cron
+sudo systemctl stop cron
+journalctl -u cron -f
