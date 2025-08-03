@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Your Free Ebook: The Happy Dog Guide!</title>
+    <meta name="description" content="Learn the secrets to training your dog to be obedient, happy, and healthy with our free ebook. Download now!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .sub-headline {
+            color: #555;
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        /* Ebook Content & Images */
+        .content-flex {
+            display: flex;
+            flex-wrap: wrap; /* For responsiveness */
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .ebook-mockup img {
+            max-width: 250px; /* Ebook mockup size */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .ebook-mockup img:hover {
+            transform: translateY(-5px);
+        }
+
+        .dog-image img {
+            max-width: 300px; /* Dog image size */
+            height: auto;
+            border-radius: 50%; /* Make image circular */
+            object-fit: cover; /* Ensure image fills the circle well */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Benefits */
+        .benefits-list {
+            text-align: left;
+            margin: 0 auto 40px auto;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .benefits-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .benefits-list li {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .benefits-list li::before {
+            content: '✓'; /* Checkmark */
+            color: #28a745; /* Green color */
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Testimonial (Optional) */
+        .testimonial {
+            background-color: #e9f7ef;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 30px auto;
+            border-radius: 8px;
+            font-style: italic;
+            color: #444;
+            max-width: 600px;
+        }
+
+        .testimonial p {
+            margin: 0 0 10px 0;
+        }
+
+        .testimonial .author {
+            font-weight: bold;
+            text-align: right;
+            display: block;
+        }
+
+        /* Opt-in Form */
+        .optin-form {
+            background-color: #f0f8ff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            max-width: 450px;
+            margin: 0 auto 30px auto;
+        }
+
+        .optin-form p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        .optin-form label {
+            display: block;
+            text-align: left;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        .optin-form input[type="email"] {
+            width: calc(100% - 20px);
+            padding: 12px 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+            box-sizing: border-box; /* Important for padding not to add to width */
+        }
+
+        .optin-form button {
+            background-color: #ff6f61; /* Attractive button color */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+        }
+
+        .optin-form button:hover {
+            background-color: #e05c50;
+            transform: translateY(-2px);
+        }
+
+        .privacy-note {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 30px;
+            font-size: 0.85em;
+            color: #999;
+        }
+
+        .footer a {
+            color: #999;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .sub-headline {
+                font-size: 1em;
+            }
+            .content-flex {
+                flex-direction: column;
+            }
+            .ebook-mockup img, .dog-image img {
+                max-width: 200px;
+            }
+            .benefits-list {
+                max-width: 100%;
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Want Your Dog to Stop Excessive Barking in 7 Days?</h1>
+            <p class="sub-headline">Get Your FREE Ebook "The Happy Dog Guide: Tips & Tricks for Modern Owners" and Transform Your Dog's Behavior Today!</p>
+        </div>
+
+        <div class="content-flex">
+            <div class="ebook-mockup">
+                <img src="https://via.placeholder.com/250x300?text=Ebook+Cover" alt="Happy Dog Guide Ebook Cover">
+            </div>
+            <div class="dog-image">
+                <img src="https://via.placeholder.com/300?text=Happy+Dog" alt="Happy Dog">
+            </div>
+        </div>
+
+        <div class="benefits-list">
+            <h3>In This Ebook, You'll Learn:</h3>
+            <ul>
+                <li>**Effective secrets** to stop biting, chewing, and excessive barking habits.</li>
+                <li>The **best nutrition tips** for a shiny coat, boundless energy, and optimal health.</li>
+                <li>A **step-by-step guide** to basic obedience training (sit, stay, come) without frustration, even if you're a beginner.</li>
+                <li>How to **build a stronger emotional bond** with your furry best friend.</li>
+                <li>Proactive tricks to **prevent common dog health issues** and keep your dog active for life.</li>
+            </ul>
+        </div>
+
+        <div class="testimonial">
+            <p>"This ebook truly transformed my relationship with Buddy! He's now calmer and more obedient. Highly recommended for all dog owners!"</p>
+            <span class="author">- Sarah W., Golden Retriever Owner</span>
+        </div>
+
+        <div class="optin-form">
+            <p>Enter your email below to get your FREE Ebook now!</p>
+            <form action="YOUR_FORM_PROCESSING_URL" method="POST">
+                <label for="email">Your Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                <button type="submit">Get My Free Ebook Now!</button>
+            </form>
+            <p class="privacy-note">We value your privacy. Your email is safe with us and will never be shared. No spam, guaranteed!</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Your Company Name. All Rights Reserved.</p>
+        <p><a href="YOUR_PRIVACY_POLICY_URL">Privacy Policy</a> | <a href="YOUR_TERMS_OF_SERVICE_URL">Terms of Service</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlock Passive Income With Zero Tech Skill | Join Now!</title>
+    <style>
+        /* Gaya dasar untuk mereset default browser */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* Latar belakang lembut */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Memastikan halaman setidaknya setinggi viewport */
+        }
+
+        /* Container utama untuk konten halaman */
+        .optin-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            max-width: 500px; /* Lebar maksimal container */
+            width: 90%; /* Responsif untuk layar kecil */
+            box-sizing: border-box; /* Padding termasuk dalam lebar */
+            border: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        /* Gaya untuk judul utama */
+        h1 {
+            color: #2c3e50; /* Warna gelap yang profesional */
+            margin-bottom: 20px;
+            font-size: 2.2em;
+            line-height: 1.2;
+            text-align: center; 
+        }
+
+        /* Gaya untuk paragraf deskripsi */
+        p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            text-align: center; 
+        }
+
+        /* Gaya untuk formulir */
+        .optin-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Jarak antar elemen form */
+        }
+
+        /* Gaya untuk label form (jika digunakan) */
+        .optin-form label {
+            text-align: left;
+            font-weight: 600;
+            color: #444;
+        }
+
+        /* Gaya untuk input teks dan email */
+        .optin-form input[type="text"],
+        .optin-form input[type="email"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 1em;
+            box-sizing: border-box; /* Padding termasuk dalam lebar */
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            text-align: center;
+        }
+
+        .optin-form input[type="text"]:focus,
+        .optin-form input[type="email"]:focus {
+            border-color: #007bff; /* Biru saat fokus */
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+
+        /* Gaya untuk tombol submit */
+        .optin-form button {
+            background-color: #007bff; /* Warna tombol utama */
+            color: white;
+            padding: 14px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%; /* Tombol memenuhi lebar container */
+        }
+
+        .optin-form button:hover {
+            background-color: #0056b3; /* Warna lebih gelap saat hover */
+            transform: translateY(-2px); /* Efek sedikit terangkat */
+        }
+
+        .optin-form button:active {
+            transform: translateY(0); /* Kembali ke posisi semula saat diklik */
+        }
+
+        /* Gaya untuk pesan flash (notifikasi dari Flask) */
+        .flash-message {
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            text-align: left; /* Teks pesan di kiri */
+        }
+
+        .flash-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .flash-message.warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+
+        .flash-message.danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Teks kecil di bawah form */
+        .privacy-note {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        /* Responsivitas dasar */
+        @media (max-width: 576px) {
+            .optin-container {
+                padding: 30px;
+                margin: 20px;
+            }
+            h1 {
+                font-size: 1.8em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .optin-form button {
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+
+               /* Benefits */
+        .benefits-list {
+            text-align: left;
+            margin: 0 auto 40px auto;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .benefits-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .benefits-list li {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+            text-align: left;
+        }
+
+        .benefits-list li::before {
+            content: '✓'; /* Checkmark */
+            color: #28a745; /* Green color */
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+          /* Footer */
+        .footer {
+            margin-top: 30px;
+            font-size: 0.85em;
+            color: #999;
+        }
+
+        .footer a {
+            color: #999;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        }
+        .btn-beat {
+            display: inline-block;
+            padding: 16px 32px;
+            background-color: #ff5722;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 12px;
+            text-decoration: none;
+            animation: beat 1.2s infinite;
+            box-shadow: 0 0 0 rgba(255,87,34, 0.7);
+            transition: box-shadow 0.3s ease;
+        }
+
+        @keyframes beat {
+        0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(255,87,34, 0.7);
+            }
+        50% {
+            transform: scale(1.02);
+            box-shadow: 0 0 0 12px rgba(255,87,34, 0);
+            }
+        }
+        .typewriter {
+            font-family: monospace;
+            font-size: 24px;
+            /* white-space: nowrap; */
+            overflow: hidden;
+            border-right: 3px solid orange;
+            width: 0;
+            animation: typing 4s steps(35, end) forwards, blink 0.7s step-end infinite;
+            max-width : 90vw;
+        }
+
+        @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+        }
+
+        @keyframes blink {
+        50% { border-color: transparent }
+        }
+        .wrapper {
+            width : fit-content;
+            margin : 50px auto;
+        }
+
+    </style>
+ 
+</head>
+<body>
+    <div class="optin-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+<h1 style="color: #B8860B;" id="typewriter"></h1>
+
+        
+        <!-- <h3>Even If You're Starting from Zero!</h3> -->
+
+        <div style="height: 5px; background: linear-gradient(to right, #00c6ff, #0072ff); margin: 5px 0;"></div>
+
+        <h3 class="sub-headline">Grab this free 7-step roadmap to help you earn your first dollar online — even if you're starting from scratch.</h3>
+        <img src="{{ url_for('static', filename='images/fufufafa3.png') }}" alt="Cover Buku Saya" width="275" height="275">
+        <br>
+        <img src="{{ url_for('static', filename='images/xxy.gif') }}" alt="Cover Buku Saya" width="75" height="75">
+         <!-- <div class="benefits-list">
+            <h3>✅ What You’ll Learn Inside:</h3>
+            <ul>
+                <li>Why “saving more” isn’t the real path to financial freedom</li>
+                <li>No salesy pitching</li>
+                <li>Perfect for beginners</li>
+            </ul>
+        </div> -->
+
+        <!-- <p style="font-size: 18px;">🎁 Access Now - It's 100% free, just drop your email</p> -->
+        <div style="max-width: 400px; margin: 5px auto; padding: 20px; border: 2px solid #4CAF50; border-radius: 12px; background-color: #ffffff; box-shadow: 0 0 10px rgba(0,0,0,0.05);">
+        <h2 style="text-align: center; color: #333;">🎁 Drop your best email and let's get you earning</h2>
+        <!-- <p style="text-align: center; font-size: 14px; color: #666;">Drop your best email and let's get you earning</p> -->
+
+        <form action="/add_subscriber" method="post" class="optin-form">
+            <div>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Name" required aria-label="Your Name">
+            </div>
+            <div>
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" placeholder="email@example.com" required aria-label="Your Email Address">
+            </div>
+            <button class="btn-beat" type="submit">Send Me the Starter Roadmap</button>
+            
+        </form>
+        </div>
+        <div class="testimonial" style="margin-top: 20px; font-style: italic; font-size: 0.95em; color: #555;">
+        <!-- <p>🐾 “My hooman finally stopped yelling. 10/10.”<br>– Buddy, the golden retriever</p> -->
+        </div>
+        <!-- <div class="testimonial" style="margin-top: 20px; font-style: italic; font-size: 0.95em; color: #555;">
+        “I was one bark away from losing my mind. This guide actually worked — and made me laugh.”<br>– Sarah, exhausted dog mom
+        </div> -->
+        <p class="privacy-note">🛡️ We respect your privacy. No spam. Unsubscribe anytime.</p>
+        <div class="footer">
+        <p>&copy; 2025 mltfreedom.com. All Rights Reserved.</p>
+        <!-- <p><a href="YOUR_PRIVACY_POLICY_URL">Privacy Policy</a> | <a href="YOUR_TERMS_OF_SERVICE_URL">Terms of Service</a></p> -->
+        </div>
+
+    </div>
+
+      <script>
+    const text = "Start Earning Online, Without the Overwhelm";
+    const speed = 50; // milliseconds per character
+    let i = 0;
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    typeWriter();
+  </script>
+
+     
+</body>
+</html>

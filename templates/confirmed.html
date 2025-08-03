@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Langganan Terkonfirmasi!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9f2f9; /* Warna latar belakang lembut */
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e0e0e0;
+        }
+
+        h1 {
+            color: #28a745; /* Hijau untuk sukses */
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #007bff; /* Biru cerah */
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-decoration: none; /* Penting untuk link */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3; /* Biru lebih gelap saat hover */
+            transform: translateY(-1px);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .footer-text {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 30px;
+        }
+
+        /* Responsif dasar */
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 30px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Selamat! Langganan Anda Terkonfirmasi!</h1>
+        <p>Terima kasih, **{{ name }}**! Email Anda ({{ email }}) telah berhasil dikonfirmasi. Selamat datang di komunitas kami!</p>
+        <p>Anda sekarang akan mulai menerima email autoresponder kami sesuai jadwal. Bersiaplah untuk konten yang bermanfaat!</p>
+        <a href="/" class="cta-button">Kembali ke Halaman Utama</a>
+        <p class="footer-text">Jika Anda memiliki pertanyaan, jangan ragu untuk menghubungi kami.</p>
+    </div>
+</body>
+</html>
